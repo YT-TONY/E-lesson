@@ -1,0 +1,5 @@
+mkdir pr_name
+cd pr_name
+python -m venv venv
+.\venv\Scripts\activate
+pip install flask

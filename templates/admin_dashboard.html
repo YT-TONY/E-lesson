@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<h2 class="mb-4">Admin Dashboard</h2>
+
+<!-- Pending Users -->
+<div class="card mb-4">
+    <div class="card-header bg-warning fw-bold">Pending User Approvals</div>
+    <div class="card-body">
+        {% if pending_users %}
+        <table class="table table-bordered align-middle">
+            <thead><tr><th>Username</th><th>Email</th><th>Role</th><th>Actions</th></tr></thead>
+            <tbody>
+                {% for user in pending_users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.role|capitalize }}</td>
+                    <td>
+                        <a href="{{ url_for('approve_user', user_id=user.id) }}" class="btn btn-success btn-sm">Approve</a>
+                        <a href="{{ url_for('delete_user', user_id=user.id) }}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No pending users.</p>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Pending Notes -->
+<div class="card mb-4">
+    <div class="card-header bg-info text-white fw-bold">Pending Notes for Approval</div>
+    <div class="card-body">
+        {% if pending_notes %}
+        <table class="table table-bordered align-middle">
+            <thead><tr><th>Title</th><th>Course</th><th>Uploader</th><th>Actions</th></tr></thead>
+            <tbody>
+                {% for note in pending_notes %}
+                <tr>
+                    <td>{{ note.title }}</td>
+                    <td>{{ note.course }}</td>
+                    <td>{{ note.uploader.username }}</td>
+                    <td>
+                        <a href="{{ url_for('view_file', filename=note.file_path) }}" target="_blank" class="btn btn-info btn-sm">View</a>
+                        <a href="{{ url_for('approve_note', note_id=note.id) }}" class="btn btn-success btn-sm">Approve</a>
+                        <a href="{{ url_for('delete_note', note_id=note.id) }}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No pending notes.</p>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Approved Notes -->
+<div class="card">
+    <div class="card-header bg-success text-white fw-bold">Approved Notes</div>
+    <div class="card-body">
+        {% if approved_notes %}
+        <table class="table table-bordered align-middle">
+            <thead><tr><th>Title</th><th>Course</th><th>Uploader</th><th>Actions</th></tr></thead>
+            <tbody>
+                {% for note in approved_notes %}
+                <tr>
+                    <td>{{ note.title }}</td>
+                    <td>{{ note.course }}</td>
+                    <td>{{ note.uploader.username }}</td>
+                    <td>
+                        <a href="{{ url_for('view_file', filename=note.file_path) }}" target="_blank" class="btn btn-info btn-sm">View</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No approved notes yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

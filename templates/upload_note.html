@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Upload Note{% endblock %}
+{% block content %}
+<div class="card mx-auto shadow-sm" style="max-width: 600px;">
+  <div class="card-body">
+    <h4 class="card-title text-center mb-4">Upload New Note</h4>
+    <form method="POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label>Title</label>
+        <input type="text" name="title" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label>Description</label>
+        <textarea name="description" class="form-control" rows="3"></textarea>
+      </div>
+      <div class="mb-3">
+        <label>Course</label>
+        <input type="text" name="course" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label>File</label>
+        <input type="file" name="file" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-dark w-100">Upload</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

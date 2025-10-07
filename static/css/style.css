@@ -1,0 +1,104 @@
+/* ==========================
+   E-Lesson Platform Styles
+   ========================== */
+
+/* General Page Styling */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #212529 !important;
+  padding: 0.8rem 1rem;
+}
+.navbar-brand {
+  font-weight: 600;
+  color: #ffffff !important;
+  letter-spacing: 0.5px;
+}
+.nav-link {
+  color: #ffffff !important;
+  margin-left: 10px;
+}
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Card Containers */
+.card {
+  border-radius: 12px;
+  border: none;
+}
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn-dark {
+  background-color: #212529;
+}
+.btn-dark:hover {
+  background-color: #000000;
+}
+
+/* Flash Messages */
+.alert {
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+/* Table Styling */
+.table {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.table th {
+  background-color: #212529;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+.table td {
+  vertical-align: middle;
+}
+
+/* Dashboard Headers */
+h3 {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Upload Page */
+form label {
+  font-weight: 500;
+}
+
+/* Footer (optional if added) */
+footer {
+  text-align: center;
+  padding: 10px 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Cards on student dashboard */
+.card h5 {
+  font-weight: 600;
+  color: #212529;
+}
+.card-text {
+  font-size: 0.9rem;
+  color: #555;
+}

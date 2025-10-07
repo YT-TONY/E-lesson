@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Student Dashboard{% endblock %}
+{% block content %}
+<h2 class="mb-4">Student Dashboard</h2>
+
+{% if notes %}
+<table class="table table-bordered align-middle">
+    <thead><tr><th>Title</th><th>Course</th><th>Actions</th></tr></thead>
+    <tbody>
+        {% for note in notes %}
+        <tr>
+            <td>{{ note.title }}</td>
+            <td>{{ note.course }}</td>
+            <td>
+                <a href="{{ url_for('view_file', filename=note.file_path) }}" target="_blank" class="btn btn-info btn-sm">View</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No approved notes available.</p>
+{% endif %}
+{% endblock %}
