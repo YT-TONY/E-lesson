@@ -12,7 +12,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), nullable=False, unique=True)
     password = db.Column(db.String(200), nullable=False)
     role = db.Column(db.String(20), nullable=False, default='student')  # 'student', 'teacher', 'admin'
-    is_approved = db.Column(db.Boolean, default=False)  # new column ✅
+    is_approved = db.Column(db.Boolean, default=False)  # new column 
 
     notes = db.relationship('Note', backref='uploader', lazy=True)
 
@@ -27,7 +27,7 @@ class Note(db.Model):
     description = db.Column(db.Text, nullable=True)
     file_path = db.Column(db.String(200), nullable=False)
     course = db.Column(db.String(100), nullable=True)
-    status = db.Column(db.String(20), default='pending')  # pending, approved, rejected
+    status = db.Column(db.String(20), default='pending') 
     upload_date = db.Column(db.DateTime, default=datetime.utcnow)
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
